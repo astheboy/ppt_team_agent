@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  
+  <style>
+    html { background: #f8fafc; }
+    body {
+      width: 720pt; height: 405pt; margin: 0; padding: 0;
+      font-family: Arial, sans-serif;
+      display: flex; flex-direction: column;
+      color: #1e293b;
+      background: #f8fafc;
+      overflow: hidden;
+    }
+    .slide-container {
+      padding: 20pt 30pt;
+      display: flex; flex-direction: column;
+      flex: 1;
+      box-sizing: border-box;
+    }
+    .header {
+      border-left: 5pt solid #ef4444;
+      padding-left: 12pt;
+      margin-bottom: 12pt;
+    }
+    h1 { margin: 0; font-size: 26pt; color: #1e293b; line-height: 1.2; }
+    h2 { margin: 3pt 0 0 0; font-size: 15pt; color: #ef4444; font-weight: normal; }
+    .content-box {
+      background: #ffffff;
+      padding: 15pt;
+      border-radius: 10pt;
+      border: 1pt solid #e2e8f0;
+      flex: 1;
+      display: flex; flex-direction: column;
+    }
+    p, li { font-size: 14pt; line-height: 1.5; margin: 0; }
+    .bullet-list { margin: 0; padding-left: 18pt; list-style: none; }
+    .bullet-list li { margin-bottom: 8pt; position: relative; }
+    .bullet-list li::before {
+      content: "•";
+      color: #ef4444;
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+    .guide-box {
+      background: #f1f5f9;
+      border-radius: 6pt;
+      padding: 8pt;
+      margin-top: 10pt;
+      border-left: 3pt solid #334155;
+    }
+    .guide-box p { font-size: 10pt; color: #64748b; line-height: 1.3; }
+    .footer {
+      margin-top: auto;
+      text-align: right;
+    }
+    .footer p {
+      font-size: 9pt;
+      color: #64748b;
+      margin: 5pt 0 0 0;
+    }
+    .highlight { color: #ef4444; font-weight: bold; }
+    .danger-box { background: #fee2e2; border-left: 3pt solid #ef4444; padding: 8pt; border-radius: 4pt; }
+  </style>
+
+</head>
+<body>
+  
+    <div class="slide-container">
+      <div class="header">
+        <h1>오늘의 학습 정리</h1>
+        <h2>핵심 콕콕! 핵심 키워드</h2>
+      </div>
+      
+      <div class="content-box">
+        <ul class="bullet-list" style="flex: 1;">
+          <li><span class="highlight">소음 공해</span>의 심각성을 이해했습니다.</li>
+          <li>기준값을 이용해 <span class="highlight">논리적인 프로그램</span>을 만들었습니다.</li>
+          <li>하드웨어와 AI 코딩으로 <span class="highlight">사회 문제</span>를 해결해 보았습니다.</li>
+        </ul>
+        <div style="background: #f8fafc; padding: 10pt; border-radius: 10pt; text-align: center;">
+          <p>우리는 오늘 소음을 잠재우는 멋진 해결사가 되었습니다!</p>
+        </div>
+        <div class="guide-box">
+          <p><b>선생님 가이드</b>: 다음 수업에 대한 예고를 하며 수업을 긍정적으로 마무리합니다.</p>
+        </div>
+      </div>
+    
+      <div class="footer">
+        <p>우리 학교 소음 해결사 | Slide 17</p>
+      </div>
+    </div>
+  
+</body>
+</html>

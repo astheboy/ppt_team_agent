@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  
+  <style>
+    html { background: #f0f9ff; }
+    body {
+      width: 720pt; height: 405pt; margin: 0; padding: 0;
+      font-family: Arial, sans-serif;
+      display: flex; flex-direction: column;
+      color: #0f172a;
+      background: #f0f9ff;
+      overflow: hidden;
+    }
+    .slide-container {
+      padding: 15pt 25pt;
+      display: flex; flex-direction: column;
+      flex: 1;
+      box-sizing: border-box;
+    }
+    .header {
+      border-left: 5pt solid #0ea5e9;
+      padding-left: 10pt;
+      margin-bottom: 8pt;
+    }
+    h1 { margin: 0; font-size: 24pt; color: #0f172a; line-height: 1.1; }
+    
+    .process-container {
+      display: flex;
+      gap: 8pt;
+      margin-top: 5pt;
+    }
+    .process-tag {
+      padding: 3pt 8pt;
+      border-radius: 4pt;
+      font-size: 10pt;
+      font-weight: bold;
+      color: white;
+    }
+    .tag-thinking { background: #0369a1; border: 1pt solid #0ea5e9; }
+    .tag-activity { background: #0f766e; border: 1pt solid #14b8a6; }
+
+    .content-box {
+      background: #ffffff;
+      padding: 10pt;
+      border-radius: 8pt;
+      border: 1pt solid #e0f2fe;
+      flex: 1;
+      display: flex; flex-direction: column;
+      min-height: 0;
+    }
+    p, li { font-size: 13pt; line-height: 1.4; margin: 0; }
+    .bullet-list { margin: 0; padding-left: 15pt; list-style: none; }
+    .bullet-list li { margin-bottom: 5pt; position: relative; }
+    .bullet-list li::before {
+      content: "🛁";
+      font-size: 10pt;
+      display: inline-block;
+      width: 1.5em;
+      margin-left: -1.5em;
+    }
+    .guide-box {
+      background: #f0f9ff;
+      border-radius: 5pt;
+      padding: 5pt;
+      margin-top: 6pt;
+      border-left: 3pt solid #0ea5e9;
+    }
+    .guide-box p { font-size: 9.5pt; color: #0369a1; line-height: 1.2; }
+    .script-box {
+      background: #fdfcfb;
+      border-radius: 5pt;
+      padding: 5pt;
+      margin-top: 4pt;
+      border-left: 3pt solid #fbbf24;
+    }
+    .script-box p { font-size: 9.5pt; color: #92400e; font-style: italic; }
+    .footer {
+      margin-top: auto;
+      text-align: right;
+    }
+    .footer p {
+      font-size: 8.5pt;
+      color: #64748b;
+      margin: 3pt 0 0 0;
+    }
+    .highlight { color: #0ea5e9; font-weight: bold; }
+    .icon-box { font-size: 40pt; text-align: center; margin: 5pt 0; }
+    .bubble {
+      width: 15pt; height: 15pt;
+      border: 1.5pt solid #22d3ee;
+      border-radius: 50%;
+      position: absolute;
+      opacity: 0.6;
+    }
+  </style>
+
+</head>
+<body>
+  
+    <div class="slide-container">
+      <div class="header">
+        <h1>[도입] 스마트 욕조가 왜 필요할까요?</h1>
+        <div class="process-container">
+          <div class="process-tag tag-thinking"><p>사고 과정: 생활 속 불편함 찾기 및 기술적 해결책 모색</p></div>
+          <div class="process-tag tag-activity"><p>활동: 강아지가 좋아하는 물의 온도 알아보고 온도 확인 방법 생각하기</p></div>
+        </div>
+      </div>
+      
+      <div class="content-box">
+        <ul class="bullet-list">
+          <li>강아지는 사람보다 온도에 민감해요</li>
+          <li>목욕 중 물이 식거나 너무 뜨거워지면 위험해요</li>
+          <li>강아지의 상태를 실시간으로 확인하면 즐겁게 목욕할 수 있어요</li>
+        </ul>
+        <div class="guide-box">
+          <p><b>선생님 가이드</b>: 사람이 느끼는 온도보다 강아지에게 적당한 온도를 유지하는 기술의 세심함을 강조합니다.</p>
+        </div>
+        <div class="script-box">
+          <p><b>스크립트</b>: "우리 강아지 목욕시킬 때, 물이 너무 뜨겁거나 차갑지는 않을까 걱정해 본 적 있나요? 오늘은 강아지가 직접 말해주는 스마트 욕조를 만들어 볼 거예요."</p>
+        </div>
+      </div>
+    
+      <div class="footer">
+        <p>스마트 욕조 만들기 | Slide 2</p>
+      </div>
+    </div>
+  
+</body>
+</html>
