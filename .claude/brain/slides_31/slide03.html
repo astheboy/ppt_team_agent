@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        html {
+            background: #fdfcfb;
+        }
+
+        body {
+            width: 720pt;
+            height: 405pt;
+            margin: 0;
+            padding: 0;
+            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            display: flex;
+            flex-direction: column;
+            color: #1a1a1a;
+            background: #fdfcfb;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .background-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+            background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+            pointer-events: none;
+        }
+
+        .header {
+            padding: 20pt 40pt;
+            display: flex;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .header-icon {
+            width: 35pt;
+            height: 35pt;
+            background: #0c2044;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20pt;
+            border-radius: 8pt;
+            margin-right: 15pt;
+        }
+
+        h1 {
+            font-size: 26pt;
+            margin: 0;
+            color: #0c2044;
+        }
+
+        .content {
+            flex: 1;
+            padding: 10pt 40pt 30pt 40pt;
+            display: flex;
+            gap: 30pt;
+            z-index: 1;
+        }
+
+        .left-panel {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right-panel {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-card {
+            background: white;
+            padding: 20pt;
+            border-radius: 15pt;
+            box-shadow: 0 5pt 15pt rgba(0, 0, 0, 0.05);
+            border-top: 5pt solid #0c2044;
+        }
+
+        .info-card h2 {
+            font-size: 20pt;
+            color: #a11d21;
+            margin-top: 0;
+        }
+
+        .info-card p {
+            font-size: 16pt;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .quote-box {
+            margin-top: 15pt;
+            background: #f0f4f8;
+            padding: 15pt;
+            border-radius: 10pt;
+            border-left: 5pt solid #0c2044;
+            font-style: italic;
+        }
+
+        .quote-box p {
+            margin: 0;
+            font-size: 14pt;
+            color: #0c2044;
+        }
+
+        .image-box {
+            width: 100%;
+            height: 250pt;
+            background: #eee;
+            border-radius: 15pt;
+            overflow: hidden;
+            box-shadow: 0 4pt 12pt rgba(0, 0, 0, 0.1);
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .highlight {
+            color: #a11d21;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-pattern"></div>
+    <div class="header">
+        <div class="header-icon">🌍</div>
+        <h1>1. 3.1 운동의 배경: 변화하는 세계</h1>
+    </div>
+    <div class="content">
+        <div class="left-panel">
+            <div class="info-card">
+                <h2>제1차 세계 대전의 종결</h2>
+                <p>전쟁이 끝나갈 무렵, 미국의 <span class="highlight">윌슨 대통령</span>이 중요한 주장을 펼쳤어요.</p>
+                <div class="quote-box">
+                    <p>"자기 민족의 일은 자기 스스로 결정할 권리가 있다!"</p>
+                    <p style="text-align: right; font-size: 12pt; margin-top: 5pt;">- 민족자결주의 -</p>
+                </div>
+                <p style="margin-top: 15pt;">이 소식은 우리 민족에게 커다란 <span class="highlight">희망</span>이 되었답니다.</p>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="image-box">
+                <div
+                    style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #e3e7ed; color: #666; font-size: 14pt; flex-direction: column;">
+                    <span>[이미지: 윌슨 대통령 또는 1919년 세계 지도]</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

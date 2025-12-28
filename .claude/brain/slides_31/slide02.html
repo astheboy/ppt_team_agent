@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        html {
+            background: #fdfcfb;
+        }
+
+        body {
+            width: 720pt;
+            height: 405pt;
+            margin: 0;
+            padding: 0;
+            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            display: flex;
+            flex-direction: column;
+            color: #1a1a1a;
+            background: #fdfcfb;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .background-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+            background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+            pointer-events: none;
+        }
+
+        .header {
+            padding: 20pt 40pt;
+            display: flex;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .header-icon {
+            width: 40pt;
+            height: 40pt;
+            background: #0c2044;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24pt;
+            border-radius: 8pt;
+            margin-right: 15pt;
+        }
+
+        h1 {
+            font-size: 28pt;
+            margin: 0;
+            color: #0c2044;
+        }
+
+        .content {
+            flex: 1;
+            padding: 0 40pt 40pt 40pt;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .objective-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .objective-item {
+            background: white;
+            margin-bottom: 15pt;
+            padding: 15pt 25pt;
+            border-radius: 12pt;
+            border-left: 8pt solid #a11d21;
+            box-shadow: 0 4pt 10pt rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+        }
+
+        .number {
+            font-size: 24pt;
+            font-weight: bold;
+            color: #a11d21;
+            margin-right: 20pt;
+        }
+
+        .text {
+            font-size: 20pt;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-pattern"></div>
+    <div class="header">
+        <div class="header-icon">🎯</div>
+        <h1>오늘의 학습 목표</h1>
+    </div>
+    <div class="content">
+        <ul class="objective-list">
+            <li class="objective-item">
+                <span class="number">1</span>
+                <span class="text">3.1 운동이 일어난 배경을 설명할 수 있다.</span>
+            </li>
+            <li class="objective-item">
+                <span class="number">2</span>
+                <span class="text">3.1 운동의 전개 과정을 순서대로 이해한다.</span>
+            </li>
+            <li class="objective-item">
+                <span class="number">3</span>
+                <span class="text">3.1 운동의 역사적 의의와 소중함을 느낀다.</span>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
