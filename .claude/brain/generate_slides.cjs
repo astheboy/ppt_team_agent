@@ -3,21 +3,18 @@ const path = require('path');
 
 const outputDir = '/Users/hanseungryun/Dev/ppt_team_agent/.claude/brain/slides';
 
-// Cozy-Water themed colors
+// AI-Tech themed colors (Dark Mode with Neon)
 const theme = {
-  bg: '#f0f9ff', // Sky 50
-  primary: '#0ea5e9', // Sky 500
-  secondary: '#22d3ee', // Cyan 400
-  accent: '#fbbf24', // Amber 400
-  hot: '#f97316', // Orange 500
-  cold: '#3b82f6', // Blue 500
-  happy: '#10b981', // Emerald 500
-  cardBg: '#ffffff',
-  headerBg: '#0c4a6e', // Sky 900
-  textMain: '#0f172a', // Slate 900
-  textMuted: '#64748b',
-  thinkingBg: '#0369a1', // Sky 700
-  activityBg: '#0f766e', // Teal 700
+  bg: '#0f172a', // Slate 900
+  primary: '#38bdf8', // Sky 400
+  secondary: '#818cf8', // Indigo 400
+  accent: '#f472b6', // Pink 400
+  cardBg: '#1e293b', // Slate 800
+  headerBg: '#0f172a',
+  textMain: '#f1f5f9', // Slate 100
+  textMuted: '#94a3b8',
+  thinkingBg: '#334155', // Slate 700
+  activityBg: '#1e3a8a', // Blue 900
 };
 
 const commonStyle = `
@@ -25,7 +22,7 @@ const commonStyle = `
     html { background: ${theme.bg}; }
     body {
       width: 720pt; height: 405pt; margin: 0; padding: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Arial, sans-serif;
       display: flex; flex-direction: column;
       color: ${theme.textMain};
       background: ${theme.bg};
@@ -42,7 +39,7 @@ const commonStyle = `
       padding-left: 10pt;
       margin-bottom: 8pt;
     }
-    h1 { margin: 0; font-size: 24pt; color: ${theme.textMain}; line-height: 1.1; }
+    h1 { margin: 0; font-size: 24pt; color: ${theme.primary}; line-height: 1.1; }
     
     .process-container {
       display: flex;
@@ -56,44 +53,45 @@ const commonStyle = `
       font-weight: bold;
       color: white;
     }
-    .tag-thinking { background: ${theme.thinkingBg}; border: 1pt solid #0ea5e9; }
-    .tag-activity { background: ${theme.activityBg}; border: 1pt solid #14b8a6; }
+    .tag-thinking { background: ${theme.thinkingBg}; border: 1pt solid ${theme.primary}; }
+    .tag-activity { background: ${theme.activityBg}; border: 1pt solid ${theme.secondary}; }
 
     .content-box {
       background: ${theme.cardBg};
-      padding: 10pt;
-      border-radius: 8pt;
-      border: 1pt solid #e0f2fe;
+      padding: 12pt;
+      border-radius: 10pt;
+      border: 1pt solid #334155;
       flex: 1;
       display: flex; flex-direction: column;
       min-height: 0;
+      box-shadow: 0 4pt 10pt rgba(0,0,0,0.3);
     }
     p, li { font-size: 13pt; line-height: 1.4; margin: 0; }
     .bullet-list { margin: 0; padding-left: 15pt; list-style: none; }
     .bullet-list li { margin-bottom: 5pt; position: relative; }
     .bullet-list li::before {
-      content: "🛁";
+      content: "✨";
       font-size: 10pt;
       display: inline-block;
       width: 1.5em;
       margin-left: -1.5em;
     }
     .guide-box {
-      background: #f0f9ff;
+      background: rgba(56, 189, 248, 0.1);
       border-radius: 5pt;
       padding: 5pt;
       margin-top: 6pt;
       border-left: 3pt solid ${theme.primary};
     }
-    .guide-box p { font-size: 9.5pt; color: #0369a1; line-height: 1.2; }
+    .guide-box p { font-size: 9.5pt; color: ${theme.primary}; line-height: 1.2; }
     .script-box {
-      background: #fdfcfb;
+      background: rgba(244, 114, 182, 0.1);
       border-radius: 5pt;
       padding: 5pt;
       margin-top: 4pt;
       border-left: 3pt solid ${theme.accent};
     }
-    .script-box p { font-size: 9.5pt; color: #92400e; font-style: italic; }
+    .script-box p { font-size: 9.5pt; color: ${theme.accent}; font-style: italic; }
     .footer {
       margin-top: auto;
       text-align: right;
@@ -103,15 +101,8 @@ const commonStyle = `
       color: ${theme.textMuted};
       margin: 3pt 0 0 0;
     }
-    .highlight { color: ${theme.primary}; font-weight: bold; }
+    .highlight { color: ${theme.secondary}; font-weight: bold; }
     .icon-box { font-size: 40pt; text-align: center; margin: 5pt 0; }
-    .bubble {
-      width: 15pt; height: 15pt;
-      border: 1.5pt solid ${theme.secondary};
-      border-radius: 50%;
-      position: absolute;
-      opacity: 0.6;
-    }
   </style>
 `;
 
@@ -119,290 +110,305 @@ const slides = [
   {
     name: 'slide01',
     content: `
-      <div style="background: ${theme.headerBg}; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; border-radius: 0;">
-        <p style="font-size: 16pt; color: ${theme.secondary}; margin-bottom: 5pt; font-weight: bold;">[프로젝트]</p>
-        <h1 style="color: white; font-size: 30pt; text-align: center; margin-bottom: 15pt; line-height: 1.2;">우리 집 강아지가 행복해하는!<br>스마트 욕조 만들기</h1>
-        <p style="font-size: 14pt; opacity: 0.8;">수온 센서로 물의 온도를 감지하고 캐릭터와 대화해요</p>
-        <div class="icon-box"><p>🐕 🫧 🌡️</p></div>
+      <div style="background: ${theme.bg}; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; border-radius: 0;">
+        <p style="font-size: 16pt; color: ${theme.primary}; margin-bottom: 5pt; font-weight: bold; text-transform: uppercase; letter-spacing: 2pt;">[프로젝트]</p>
+        <h1 style="color: white; font-size: 30pt; text-align: center; margin-bottom: 15pt; line-height: 1.2;">똑똑한 AI 친구와 함께!<br>나만의 계산기 만들기</h1>
+        <p style="font-size: 14pt; opacity: 0.8; color: ${theme.secondary};">코딩 몰라도 OK! 대화로 완성하는 마법의 도구</p>
+        <div class="icon-box"><p>🤖 ⚡ 🧮</p></div>
       </div>
     `,
     noLayout: true
   },
   {
-    title: '[도입] 스마트 욕조가 왜 필요할까요?',
-    thinking: '생활 속 불편함 찾기 및 기술적 해결책 모색',
-    activity: '강아지가 좋아하는 물의 온도 알아보고 온도 확인 방법 생각하기',
+    title: '[도입] 코딩 장벽 허물기: AI와의 첫 만남',
+    thinking: '기술적 두려움 해소 및 새로운 창작 방식 인식',
+    activity: '"컴퓨터와 우리말로 대화해서 프로그램을 만든다면?" 상상해보기',
     content: `
       <div class="content-box">
         <ul class="bullet-list">
-          <li>강아지는 사람보다 온도에 민감해요</li>
-          <li>목욕 중 물이 식거나 너무 뜨거워지면 위험해요</li>
-          <li>강아지의 상태를 실시간으로 확인하면 즐겁게 목욕할 수 있어요</li>
+          <li>복잡한 명령어 주르륵... 예전의 코딩은 잊으세요!</li>
+          <li>이제는 친구에게 말하듯 AI에게 부탁하면 됩니다</li>
+          <li>중요한 것은 "어떤 코드를 짜느냐"보다 <span class="highlight">"무엇을 만들고 싶은가"</span>입니다</li>
         </ul>
         <div class="guide-box">
-          <p><b>선생님 가이드</b>: 사람이 느끼는 온도보다 강아지에게 적당한 온도를 유지하는 기술의 세심함을 강조합니다.</p>
+          <p><b>선생님 가이드</b>: 코딩 실력보다 아이디어가 더 중요함을 강조하여 학생들의 자신감을 북돋아줍니다.</p>
         </div>
         <div class="script-box">
-          <p><b>스크립트</b>: "우리 강아지 목욕시킬 때, 물이 너무 뜨겁거나 차갑지는 않을까 걱정해 본 적 있나요? 오늘은 강아지가 직접 말해주는 스마트 욕조를 만들어 볼 거예요."</p>
+          <p><b>스크립트</b>: "여러분, 코딩이 어렵게 느껴졌나요? 이제는 걱정 마세요. AI 친구에게 우리말로 부탁만 하면 마법처럼 프로그램이 만들어진답니다."</p>
         </div>
       </div>
     `
   },
   {
-    title: '[설계] 한눈에 보이는 대시보드 (UI)',
-    thinking: '정보의 위계 및 시각적 요소 구성',
-    activity: '화면 내 제목, 온도 숫자, 강아지 캐릭터가 들어갈 위치 잡기',
+    title: '[설계] 내가 갖고 싶은 계산기 디자인',
+    thinking: '사용자 중심의 시각적 요소구상',
+    activity: '계산기 화면의 숫자판, 연산 버튼, 결과 표시창의 위치 스케치하기',
     content: `
       <div class="content-box">
-        <div style="border: 2pt dashed ${theme.primary}; border-radius: 10pt; flex: 1; padding: 10pt; display: flex; flex-direction: column; align-items: center; justify-content: space-between; background: #f0f9ff;">
-            <p style="font-size: 14pt; font-weight: bold;">[ SMART BATHTUB ]</p>
-            <p style="font-size: 40pt;">🐶</p>
-            <p style="font-size: 20pt; font-weight: bold; color: ${theme.primary};">32.5 °C</p>
-            <div style="background: white; border: 1pt solid #ddd; padding: 5pt 15pt; border-radius: 15pt;"><p style="font-size: 10pt;">"나는 지금 행복해요!"</p></div>
-        </div>
-        <div class="guide-box">
-          <p><b>선생님 가이드</b>: 가장 중요한 정보인 '현재 온도'와 캐릭터가 화면 중앙에서 잘 보여야 함을 설명합니다.</p>
-        </div>
-        <div class="script-box">
-          <p><b>스크립트</b>: "온도계와 강아지가 어디에 있으면 좋을까요? 우리가 멀리서도 잘 보일 수 있게 화면을 꾸며봅시다."</p>
-        </div>
-      </div>
-    `
-  },
-  {
-    title: '[준비] 물속 온도를 재는 수온 센서',
-    thinking: '사용 환경에 맞는 부품 선정',
-    activity: 'EZmaker 보드와 방수가 되는 수온 센서 준비하기',
-    content: `
-      <div class="content-box">
-        <div style="display: flex; gap: 20pt; justify-content: center; align-items: center; flex: 1;">
-          <div style="text-align: center;">
-              <p style="font-size: 35pt;">📟</p>
-              <p style="font-size: 9pt;">EZmaker</p>
-          </div>
-          <div style="font-size: 20pt; color: ${theme.primary};"><p>+</p></div>
-          <div style="text-align: center;">
-              <p style="font-size: 35pt;">🔌</p>
-              <p style="font-size: 9pt;">수온 센서(DS18B20 등)</p>
-          </div>
-        </div>
-        <div class="guide-box">
-          <p><b>선생님 가이드</b>: 물속에서도 안전하게 작동하는 '방수' 기능의 중요성을 설명합니다.</p>
-        </div>
-        <div class="script-box">
-          <p><b>스크립트</b>: "물속에서 온도를 재려면 특별한 센서가 필요해요. 물이 들어가도 고장 나지 않는 수온 센서를 찾아봅시다."</p>
-        </div>
-      </div>
-    `
-  },
-  {
-    title: '[연결] 수온 센서 안전하게 연결하기',
-    thinking: '전기 신호의 전달 경로 구축',
-    activity: '센서 핀(VCC, TX, RX, GND)을 EZmaker 보드에 알맞게 연결하기',
-    content: `
-      <div class="content-box">
-        <div style="background: white; border: 1.5pt solid ${theme.primary}; border-radius: 8pt; padding: 10pt; flex: 1; display: flex; flex-direction: column; justify-content: center;">
+        <div style="display: flex; gap: 15pt; flex: 1; align-items: center;">
+            <div style="background: #334155; padding: 10pt; border-radius: 8pt; width: 120pt; aspect-ratio: 3/4; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4pt;">
+                <div style="grid-column: span 4; background: #000; height: 25pt; border-radius: 3pt; margin-bottom: 4pt;"><p></p></div>
+                <div style="background: #475569; border-radius: 2pt;"><p></p></div><div style="background: #475569; border-radius: 2pt;"><p></p></div><div style="background: #475569; border-radius: 2pt;"><p></p></div><div style="background: ${theme.accent}; border-radius: 2pt;"><p></p></div>
+                <div style="background: #475569; border-radius: 2pt;"><p></p></div><div style="background: #475569; border-radius: 2pt;"><p></p></div><div style="background: #475569; border-radius: 2pt;"><p></p></div><div style="background: ${theme.accent}; border-radius: 2pt;"><p></p></div>
+                <div style="background: #475569; border-radius: 2pt;"><p></p></div><div style="background: #475569; border-radius: 2pt;"><p></p></div><div style="background: #475569; border-radius: 2pt;"><p></p></div><div style="background: ${theme.accent}; border-radius: 2pt;"><p></p></div>
+            </div>
             <ul class="bullet-list">
-              <li>빨간색 (VCC) ➔ <span style="color: #ef4444; font-weight: bold;">3.3V 또는 5V</span></li>
-              <li>노란색/흰색 (Data) ➔ <span style="color: #0ea5e9; font-weight: bold;">Digital D2</span></li>
-              <li>검정색 (GND) ➔ <span style="color: #64748b; font-weight: bold;">GND</span></li>
+              <li>화면(Display)은 어디에?</li>
+              <li>숫자 버튼 배치는 어떻게?</li>
+              <li>내가 좋아하는 색깔 테마는?</li>
             </ul>
         </div>
         <div class="guide-box">
-          <p><b>선생님 가이드</b>: 선의 색상이나 핀 번호가 정확한지 다시 한번 확인하게 합니다.</p>
+          <p><b>선생님 가이드</b>: 버튼 배치나 테마를 자유롭게 상상하게 하여 창의성을 유도합니다.</p>
         </div>
         <div class="script-box">
-          <p><b>스크립트</b>: "센서의 선을 EZmaker에 연결해 볼까요? 물에 닿는 부분과 보드가 연결되는 부분을 잘 살펴보고 꽂아주세요."</p>
+          <p><b>스크립트</b>: "우리가 만들 계산기는 어떤 모습일까요? 멋진 색깔이나 버튼 배치를 미리 머릿속에 그려봅시다."</p>
         </div>
       </div>
     `
   },
   {
-    title: '[논리 1] 온도별 강아지 상태 정의하기',
-    thinking: '데이터 값에 따른 상태 분류 (Decision)',
-    activity: '온도를 세 가지 범위(추워요, 행복해요, 뜨거워요)로 기준 정하기',
+    title: '[준비] AI 도우미와 작업실 준비',
+    thinking: '협업 도구의 환경 이해',
+    activity: 'Gemini(AI) 화면과 코드를 실행할 메모장(편집기) 열기',
     content: `
       <div class="content-box">
-        <div style="background: #e0f2fe; border-radius: 8pt; padding: 8pt; flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 4pt;">
-            <div style="font-size: 11pt; display: flex; justify-content: space-between; background: ${theme.cold}; color: white; padding: 5pt; border-radius: 4pt;"><span>30°C 이하</span><span>❄️ 너무 추워요</span></div>
-            <div style="font-size: 11pt; display: flex; justify-content: space-between; background: ${theme.happy}; color: white; padding: 5pt; border-radius: 4pt;"><span>30~38°C</span><span>😊 행복해요</span></div>
-            <div style="font-size: 11pt; display: flex; justify-content: space-between; background: ${theme.hot}; color: white; padding: 5pt; border-radius: 4pt;"><span>38°C 초과</span><span>🔥 너무 뜨거워요</span></div>
+        <div style="display: flex; justify-content: space-around; align-items: center; flex: 1;">
+          <div style="text-align: center;">
+              <p style="font-size: 35pt;">💬</p>
+              <p style="font-size: 9pt; color: ${theme.primary};">Gemini (AI 파트너)</p>
+          </div>
+          <div style="font-size: 20pt; color: ${theme.secondary};"><p>🤝</p></div>
+          <div style="text-align: center;">
+              <p style="font-size: 35pt;">📝</p>
+              <p style="font-size: 9pt; color: ${theme.accent};">메모장 (작업 공간)</p>
+          </div>
         </div>
         <div class="guide-box">
-          <p><b>선생님 가이드</b>: 강아지에게 적당한 온도를 유지하는 논리적 기준을 세웁니다.</p>
+          <p><b>선생님 가이드</b>: AI는 제안을 하고, 사람은 그 결과를 담아 실행한다는 협업 흐름을 설명합니다.</p>
         </div>
         <div class="script-box">
-          <p><b>스크립트</b>: "온도가 몇 도일 때 강아지가 가장 기분이 좋을까요? 30도에서 38도 사이는 '행복'이라고 약속해 봅시다."</p>
+          <p><b>스크립트</b>: "똑똑한 개발자인 AI 친구 Gemini와 우리가 코드를 적을 작업 공간을 준비해 봅시다."</p>
         </div>
       </div>
     `
   },
   {
-    title: '[논리 2] 변하는 배경과 메시지',
-    thinking: '조건에 따른 출력 요소 일치시키기 (Mapping)',
-    activity: '온도 상태에 따라 어떤 배경색과 메시지를 출력할지 결정하기',
+    title: '[바이브 1] 첫 번째 마법 명령(Prompt)',
+    thinking: '구체적이고 명확한 의사소통 (Prompt Engineering)',
+    activity: '"사칙연산이 가능한 심플한 계산기를 만들어줘"라고 요청하기',
     content: `
       <div class="content-box">
-        <div style="display: flex; gap: 10pt; align-items: center; justify-content: center; flex: 1;">
-          <div style="background: #bfdbfe; width: 40pt; height: 40pt; border-radius: 5pt; display: flex; align-items: center; justify-content: center;"><p>🥶</p></div>
-          <div style="color: ${theme.primary}; font-weight: bold;"><p>➔</p></div>
-          <div style="background: #fdf2f8; width: 40pt; height: 40pt; border-radius: 5pt; display: flex; align-items: center; justify-content: center;"><p>💖</p></div>
-          <div style="color: ${theme.primary}; font-weight: bold;"><p>➔</p></div>
-          <div style="background: #fed7aa; width: 40pt; height: 40pt; border-radius: 5pt; display: flex; align-items: center; justify-content: center;"><p>🥵</p></div>
+        <div style="background: #1e3a8a; border-radius: 8pt; padding: 10pt; border: 1pt dashed ${theme.primary};">
+          <p style="color: ${theme.primary}; font-weight: bold; margin-bottom: 5pt;">🗣️ 나의 요청(Prompt):</p>
+          <p style="font-size: 11pt; color: white;">"안녕 Gemini! HTML과 CSS, JavaScript를 사용해서 웹 브라우저에서 실행되는 <span style="background: #334155; padding: 1pt 3pt;">사칙연산 계산기</span>를 만들어줘."</p>
         </div>
+        <p style="margin-top: 10pt; font-size: 11pt; text-align: center; color: ${theme.textMuted};">※ 구체적으로 요청할수록 더 좋은 결과가 나와요!</p>
         <div class="guide-box">
-          <p><b>선생님 가이드</b>: 색감의 상징성(파랑-차갑다, 주황-뜨겁다)을 활용하여 직관적인 UI를 구성합니다.</p>
+          <p><b>선생님 가이드</b>: 원하는 기능을 누락 없이 전달하는 '정확한 말하기'의 중요성을 깨닫게 합니다.</p>
         </div>
         <div class="script-box">
-          <p><b>스크립트</b>: "온도가 바뀌면 화면 색상도 함께 바뀌게 하면 어떨까요? 추우면 덜덜 떠는 파란색 배경으로 바꿔봅시다."</p>
+          <p><b>스크립트</b>: "자, 대화를 시작해 볼까요? 우리 첫 번째 작품으로 심플한 계산기를 만들어달라고 부탁해 봅시다."</p>
         </div>
       </div>
     `
   },
   {
-    title: '[코딩] 실시간 수온 데이터 전송',
-    thinking: '지속적인 데이터 스트리밍 구현',
-    activity: '온도 센서 값을 읽어 실시간으로 웹앱으로 전송하는 코드 만들기',
+    title: '[실행] 마법의 주문 복사하고 확인하기',
+    thinking: '결과물의 반영 및 실행 프로세스 이해',
+    activity: 'AI가 준 코드를 복사해서 메모장에 붙여넣고 실행 화면 확인하기',
     content: `
       <div class="content-box">
-        <div style="background: #0c4a6e; color: white; border-radius: 8pt; padding: 12pt; font-family: monospace; font-size: 11pt; flex: 1;">
-          <p style="color: #f472b6;">[제어] 무한 반복하기</p>
-          <p style="color: #38bdf8; margin-left:15pt;">[통신] 데이터 전송 ( [센서] 온도 센서(D2) )</p>
-          <p style="color: #94a3b8; margin-left:15pt;">[제어] 0.1초 기다리기</p>
+        <div style="display: flex; gap: 10pt; flex: 1; align-items: center;">
+          <div style="flex: 1;">
+            <p style="font-size: 10pt; margin-bottom: 5pt;">1. 코드 우측상단 <span style="color: ${theme.primary};">[Copy]</span> 버튼 클릭</p>
+            <p style="font-size: 10pt; margin-bottom: 5pt;">2. 메모장에 <span style="color: ${theme.secondary};">[Ctrl + V]</span> 붙여넣기</p>
+            <p style="font-size: 10pt;">3. <span style="color: ${theme.accent};">calculator.html</span>로 저장 후 실행!</p>
+          </div>
+          <div style="background: #000; padding: 5pt; border-radius: 5pt; border: 1pt solid #334155;">
+             <p style="font-size: 8pt; color: #10b981;">&lt;!DOCTYPE html&gt;</p>
+             <p style="font-size: 8pt; color: #10b981;">&lt;html&gt;...</p>
+          </div>
         </div>
         <div class="guide-box">
-          <p><b>선생님 가이드</b>: 실시간 온도 변화를 감지하기 위해 무한 반복 블록을 사용합니다.</p>
+          <p><b>선생님 가이드</b>: 코드 내용을 몰라도 '복사-붙여넣기-확인'의 프로세스만으로 성취감을 줍니다.</p>
         </div>
         <div class="script-box">
-          <p><b>스크립트</b>: "이제 센서가 읽은 따뜻한 온도를 웹앱으로 슝~ 보내봅시다. '무한 반복하기' 블록이 꼭 필요해요!"</p>
+          <p><b>스크립트</b>: "AI가 준 코드를 작업실에 옮겨 적어 봅시다. 짜잔! 화면에 계산기가 나타났나요?"</p>
         </div>
       </div>
     `
   },
   {
-    title: '[바이브 1] 강아지 리액션 앱 만들기',
-    thinking: '자연어 명령으로 상태 로직 구현',
-    activity: '"온도에 따라 강아지가 떨거나 웃는 리액션 보여주는 앱 만들어줘" 요청하기',
+    title: '[논리 1] 계산기는 어떻게 작동할까?',
+    thinking: '추상화된 기능의 내부 원리 이해',
+    activity: '입력 -> 기억 -> 연산 -> 출력으로 이어지는 흐름 이해하기',
     content: `
       <div class="content-box">
-        <div style="background: #f0f9ff; padding: 8pt; border-radius: 8pt; border: 1pt dashed ${theme.primary}; margin-bottom: 5pt;">
-          <p style="font-weight: bold; color: ${theme.primary}; margin-bottom: 3pt;">💬 AI Prompt</p>
-          <p style="font-size: 10pt;">"물의 온도가 30도 이하면 덜덜 떨고, 38도 초과면 땀을 뻘뻘 흘리는 강아지 앱을 만들어줘."</p>
-        </div>
-        <div style="flex: 1; display: flex; justify-content: space-around; align-items: center;">
-             <div style="text-align: center;"><p style="font-size: 30pt;">🥶</p><p style="font-size: 8pt;">Too Cold</p></div>
-             <div style="text-align: center;"><p style="font-size: 30pt;">😊</p><p style="font-size: 8pt;">Happy</p></div>
-             <div style="text-align: center;"><p style="font-size: 30pt;">🥵</p><p style="font-size: 8pt;">Too Hot</p></div>
+        <div style="display: flex; justify-content: space-around; align-items: center; flex: 1;">
+           <div style="text-align: center;"><p style="font-size: 25pt;">👉</p><p style="font-size: 8pt;">클릭(입력)</p></div>
+           <div style="color: ${theme.primary};"><p>➔</p></div>
+           <div style="text-align: center;"><p style="font-size: 25pt;">🧠</p><p style="font-size: 8pt;">데이터 기억</p></div>
+           <div style="color: ${theme.primary};"><p>➔</p></div>
+           <div style="text-align: center;"><p style="font-size: 25pt;">⚙️</p><p style="font-size: 8pt;">계산 처리</p></div>
+           <div style="color: ${theme.primary};"><p>➔</p></div>
+           <div style="text-align: center;"><p style="font-size: 25pt;">🖥️</p><p style="font-size: 8pt;">결과 표시</p></div>
         </div>
         <div class="guide-box">
-          <p><b>선생님 가이드</b>: 앞에서 정한 온도 범위를 AI에게 구체적으로 전달하게 합니다.</p>
+          <p><b>선생님 가이드</b>: 코드는 몰라도 내부의 논리적 순서는 우리의 사고 모델과 같음을 설명합니다.</p>
         </div>
         <div class="script-box">
-          <p><b>스크립트</b>: "바이브 AI에게 우리의 규칙을 알려줍시다. '30도 이하면 추워서 덜덜 떠는 강아지를 그려줘'라고 말해볼까요?"</p>
+          <p><b>스크립트</b>: "비록 AI가 만들었지만, 계산기가 숫자를 기억하고 계산하는 과정은 우리 머릿속과 똑같아요."</p>
         </div>
       </div>
     `
   },
   {
-    title: '[실행] 따뜻한 물, 차가운 물 테스트',
-    thinking: '프로젝트 결과물 검증',
-    activity: '센서를 물에 번갈아 넣으며 강아지의 반응 확인하기',
+    title: '[수정 1] 내 마음대로 디자인 바꾸기',
+    thinking: '기존 결과물의 변형 및 개인화',
+    activity: '"배경색을 보라색으로 바꾸고 버튼을 둥글게 해줘" 추가 요청하기',
     content: `
       <div class="content-box">
-        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fafaf9; border-radius: 10pt;">
-          <p style="font-size: 12pt; opacity: 0.6;">Water Temperature</p>
-          <p style="font-size: 45pt; font-weight: bold; color: ${theme.cold};">24.8 °C</p>
-          <p style="font-size: 15pt; margin-top: 5pt;">Puppy: <span style="color: ${theme.cold};">"으으~ 너무 추워요!"</span></p>
+        <div style="background: rgba(129, 140, 248, 0.2); border-radius: 8pt; padding: 10pt; border: 1pt solid ${theme.secondary};">
+          <p style="color: ${theme.secondary}; font-weight: bold; margin-bottom: 5pt;">💬 추가 요청하기:</p>
+          <p style="font-size: 11pt;">"전체적인 배경색을 <span style="color: ${theme.secondary};">다크 모드</span>로 바꾸고, 버튼 모서리를 <span style="color: ${theme.accent};">둥글게</span> 다듬어줘."</p>
+        </div>
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 20pt; margin-top: 10pt;">
+          <div style="width: 40pt; height: 40pt; background: #94a3b8;"><p></p></div>
+          <div style="color: ${theme.primary};"><p>➔</p></div>
+          <div style="width: 40pt; height: 40pt; background: #4338ca; border-radius: 10pt;"><p></p></div>
         </div>
         <div class="guide-box">
-          <p><b>선생님 가이드</b>: 수온 센서가 실제 주변 온도를 정확하게 읽는지 확인합니다.</p>
+          <p><b>선생님 가이드</b>: 대화를 통해 결과물을 점진적으로 개선하는 '반복적 개발(Iteration)'을 경험합니다.</p>
         </div>
         <div class="script-box">
-          <p><b>스크립트</b>: "자, 준비한 물에 센서를 넣어봐요. 강아지가 행복해하나요? 아니면 너무 뜨거워하나요?"</p>
+          <p><b>스크립트</b>: "계산기가 조금 밋밋한가요? AI에게 우리가 좋아하는 색깔로 옷을 입혀달라고 해봅시다."</p>
         </div>
       </div>
     `
   },
   {
-    title: '[기능 추가 1] 뽀글뽀글 비눗방울 효과',
-    thinking: '시각적 피드백의 완성도 높이기',
-    activity: '"행복한 온도일 때만 비눗방울이 올라오게 해줘" 요청하기',
+    title: '[기능 추가 1] 잊지 않게 기억해줘! 계산 기록',
+    thinking: '새로운 요구사항 도출 및 확장',
+    activity: '"이전 계산 기록(History)을 보여주는 기능을 넣어줘" 요청하기',
     content: `
       <div class="content-box">
-        <div style="flex: 1; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #ecfdf5; border-radius: 8pt;">
-            <p style="font-size: 50pt; z-index: 2;">🐶</p>
-            <div class="bubble" style="bottom: 10pt; left: 50pt;"></div>
-            <div class="bubble" style="bottom: 30pt; right: 60pt;"></div>
-            <div class="bubble" style="bottom: 50pt; left: 100pt; width: 8pt; height: 8pt;"></div>
-            <p style="position: absolute; bottom: 10pt; width: 100%; text-align: center; color: ${theme.happy}; font-weight: bold; font-size: 10pt;">🫧 BUBBLE MODE 🫧</p>
+        <div style="background: #1e293b; border: 1.5pt solid ${theme.accent}; border-radius: 8pt; padding: 10pt; flex: 1;">
+           <p style="color: ${theme.accent}; font-weight: bold; margin-bottom: 5pt;">📜 History Log</p>
+           <ul style="list-style: none; padding: 0; font-family: monospace; font-size: 10pt; color: ${theme.textMuted};">
+             <li><p>12 + 45 = <span style="color: white;">57</span></p></li>
+             <li><p>57 * 2 = <span style="color: white;">114</span></p></li>
+           </ul>
         </div>
         <div class="guide-box">
-          <p><b>선생님 가이드</b>: 특정 조건문 내에서 애니메이션을 실행하는 원리를 이해합니다.</p>
+          <p><b>선생님 가이드</b>: 도구의 편리함을 높이기 위해 사용자가 필요로 할 기능을 스스로 생각해보게 합니다.</p>
         </div>
         <div class="script-box">
-          <p><b>스크립트</b>: "가장 기분 좋은 온도일 때 비눗방울이 뽀글뽀글 올라오면 훨씬 더 욕조 느낌이 나겠죠?"</p>
+          <p><b>스크립트</b>: "방금 계산한 걸 까먹으면 안 되겠죠? 계산 기록을 남겨주는 똑똑한 기능을 더해볼까요?"</p>
         </div>
       </div>
     `
   },
   {
-    title: '[기능 추가 2] 부드러운 배경색 전환',
-    thinking: '사용자 경험(UX) 최적화',
-    activity: '"온도가 바뀔 때 배경색이 부드럽게 변하게 해줘" 요청하기',
+    title: '[기능 추가 2] 화려한 애니메이션 효과',
+    thinking: '감성적 요소와 상호작용 강화',
+    activity: '"버튼을 누를 때마다 커지는 효과를 넣어줘" 요청하기',
     content: `
       <div class="content-box">
         <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
-            <div style="width: 150pt; height: 30pt; background: ${theme.primary}; border-radius: 15pt;"></div>
+            <div style="background: ${theme.primary}; width: 60pt; height: 60pt; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20pt ${theme.primary};">
+                <p style="font-size: 20pt; font-weight: bold; color: white;">+</p>
+            </div>
         </div>
-        <ul class="bullet-list" style="margin-top: 10pt;">
-          <li style="font-size: 11pt;">css transition 속성 활용하기</li>
-          <li style="font-size: 11pt;">색상이 서서히 바뀌어 눈이 편안해짐</li>
-        </ul>
+        <p style="text-align: center; color: ${theme.secondary}; font-size: 11pt;">"살아 움직이는 듯한 입체감을 더해요!"</p>
         <div class="guide-box">
-          <p><b>선생님 가이드</b>: 기술이 감동을 줄 수 있는 세심한 포인트(CSS 전환)를 경험합니다.</p>
+          <p><b>선생님 가이드</b>: 미학적인 애니메이션 효과가 프로그램의 품질을 어떻게 높이는지 체감합니다.</p>
         </div>
         <div class="script-box">
-          <p><b>스크립트</b>: "온도가 조금씩 오를 때 화면 색상도 서서히 바뀌게 해봅시다. 우리 눈이 훨씬 편안해질 거예요."</p>
+          <p><b>스크립트</b>: "버튼을 누를 때마다 살아 움직이는 계산기를 만들어 봅시다. 연주하듯이 즐거워질 거예요!"</p>
         </div>
       </div>
     `
   },
   {
-    title: '[테스트] 완벽한 스마트 욕조 점검',
-    thinking: '통합 시스템 디버깅',
-    activity: '온도별 애니메이션과 배경색이 모두 정상인지 점검하기',
+    title: '[디버깅] AI 친구와 함께 오류 고치기',
+    thinking: '문제 해결 및 비판적 사고',
+    activity: '버튼 위치가 이상하거나 오류가 나면 AI에게 상담하여 해결하기',
     content: `
       <div class="content-box">
-        <ul class="bullet-list" style="flex: 1;">
-          <li>30~38도에서 비눗방울이 나타나나요?</li>
-          <li>강아지의 상태 메시지가 온도와 일치하나요?</li>
-          <li>배경색이 자연스럽게 변하나요?</li>
-        </ul>
+        <div style="display: flex; gap: 10pt; flex: 1; align-items: center;">
+          <div style="background: rgba(239, 68, 68, 0.1); border: 1pt solid #ef4444; border-radius: 8pt; padding: 8pt; flex: 1;">
+            <p style="color: #ef4444; font-weight: bold; font-size: 10pt;">⚠ Problem</p>
+            <p style="font-size: 10pt;">"버튼이 화면 밖으로 나가요!"</p>
+          </div>
+          <div style="color: ${theme.primary};"><p>➔</p></div>
+          <div style="background: rgba(16, 185, 129, 0.1); border: 1pt solid #10b981; border-radius: 8pt; padding: 8pt; flex: 1;">
+            <p style="color: #10b981; font-weight: bold; font-size: 10pt;">✅ AI Solution</p>
+            <p style="font-size: 10pt;">"CSS의 width 설정을 수정해 드릴게요."</p>
+          </div>
+        </div>
         <div class="guide-box">
-          <p><b>선생님 가이드</b>: 모든 기능이 의도한 조건에서 정확히 작동하는지 확인합니다.</p>
+          <p><b>선생님 가이드</b>: 포기하지 않고 AI와 소통하며 문제를 해결하는 협업 태도를 지향합니다.</p>
         </div>
         <div class="script-box">
-          <p><b>스크립트</b>: "우리가 만든 욕조가 완벽한지 다 같이 테스트해 봐요. 비눗방울도 잘 올라오고 색깔도 예쁘게 변하나요?"</p>
+          <p><b>스크립트</b>: "앗, 버튼이 겹쳐 보이나요? 당황하지 말고 AI에게 '어디가 이상해, 고쳐줘'라고 말하면 돼요."</p>
         </div>
       </div>
     `
   },
   {
-    title: '[정리] AI로 만드는 따뜻한 세상',
-    thinking: '기술의 가치 내면화 및 확장 상상',
-    activity: '동물을 돕는 또 다른 스마트 장치 아이디어 나누기',
+    title: '[최적화] 마지막 한 끗 차이, 폴리싱',
+    thinking: '완성도 높은 결과물을 위한 세부 조정',
+    activity: '글자 크기, 여백 등을 미세하게 조정하여 완성하기',
     content: `
       <div class="content-box">
-        <div style="display: flex; gap: 15pt; justify-content: center; align-items: center; flex: 1;">
-           <div style="text-align: center;"><p style="font-size: 35pt;">🥘</p><p style="font-size: 9pt;">자동 급식기</p></div>
-           <div style="text-align: center;"><p style="font-size: 35pt;">🎾</p><p style="font-size: 9pt;">놀이 로봇</p></div>
-           <div style="text-align: center;"><p style="font-size: 35pt;">🏠</p><p style="font-size: 9pt;">스마트 집</p></div>
+        <div style="display: flex; flex-direction: column; gap: 5pt; flex: 1; justify-content: center;">
+            <p style="font-size: 11pt;">📐 숫자 크기를 조금 더 키워주세요</p>
+            <p style="font-size: 11pt;">📏 버튼 사이의 간격을 넓혀주세요</p>
+            <p style="font-size: 11pt;">🪞 결과창에 반사 효과를 넣어주세요</p>
         </div>
         <div class="guide-box">
-          <p><b>선생님 가이드</b>: 코딩 기술이 주변 생명을 돌보고 행복하게 할 수 있음을 일깨웁니다.</p>
+          <p><b>선생님 가이드</b>: 좋은 프로그램은 '디테일'에서 결정된다는 점을 상기시킵니다.</p>
         </div>
         <div class="script-box">
-          <p><b>스크립트</b>: "오늘 우리는 강아지를 위한 따뜻한 마음을 코딩했어요. 다음엔 어떤 동물을 도와주는 발명품을 만들어보고 싶나요?"</p>
+          <p><b>스크립트</b>: "거의 다 왔어요! 글씨 크기도 맞추고 모서리도 둥글게 깎아서 진짜 앱처럼 만들어 봅시다."</p>
+        </div>
+      </div>
+    `
+  },
+  {
+    title: '[테스트] 친구와 함께 써보는 계산기',
+    thinking: '사용자 피드백 수렴 및 상호 평가',
+    activity: '친구의 작품을 직접 써보고 장점 찾아 칭찬하기',
+    content: `
+      <div class="content-box">
+        <div style="display: flex; gap: 15pt; justify-content: center; flex: 1;">
+          <div style="text-align: center;"><p>🎨</p><p style="font-size: 9pt;">독창적 디자인</p></div>
+          <div style="text-align: center;"><p>🚀</p><p style="font-size: 9pt;">빠른 반응 속도</p></div>
+          <div style="text-align: center;"><p>🌟</p><p style="font-size: 9pt;">특별한 기능</p></div>
+        </div>
+        <div class="guide-box">
+          <p><b>선생님 가이드</b>: 같은 AI를 썼더라도 사람의 '생각'에 따라 다른 결과가 나옴을 확인합니다.</p>
+        </div>
+        <div class="script-box">
+          <p><b>스크립트</b>: "우리 반 친구들은 어떤 계산기를 만들었을까요? 서로의 작품을 써보며 멋진 점을 찾아봐요."</p>
+        </div>
+      </div>
+    `
+  },
+  {
+    title: '[정리] 이제 나도 당당한 창작자!',
+    thinking: '성취감 내면화 및 미래 비전 확장',
+    activity: 'AI 시대에 필요한 나의 경쟁력 상상해보기',
+    content: `
+      <div class="content-box">
+        <p style="text-align: center; font-size: 15pt; color: ${theme.primary}; font-weight: bold; margin-bottom: 10pt;">"코딩 기술보다 더 중요한 것은<br>질문하는 힘과 상상력입니다."</p>
+        <div class="icon-box"><p>🏆 💡 🌍</p></div>
+        <div class="guide-box">
+          <p><b>선생님 가이드</b>: AI를 잘 활용하는 능력이 미래의 새로운 무기가 될 수 있음을 시사합니다.</p>
+        </div>
+        <div class="script-box">
+          <p><b>스크립트</b>: "오늘 우리는 코딩을 잘 몰라도 AI와 함께 멋진 걸 만들었어요. 다음번엔 AI와 또 무엇을 만들어볼까요?"</p>
         </div>
       </div>
     `
@@ -432,7 +438,7 @@ slides.forEach((slide, index) => {
       </div>
       ${slide.content}
       <div class="footer">
-        <p>스마트 욕조 만들기 | Slide ${index + 1}</p>
+        <p>AI 계산기 마스터하기 | Slide ${index + 1}</p>
       </div>
     </div>
   `}

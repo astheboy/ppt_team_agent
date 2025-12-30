@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   
   <style>
-    html { background: #f0f9ff; }
+    html { background: #1e1b4b; }
     body {
       width: 720pt; height: 405pt; margin: 0; padding: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
       display: flex; flex-direction: column;
-      color: #0f172a;
-      background: #f0f9ff;
+      color: #f8fafc;
+      background: #1e1b4b;
       overflow: hidden;
     }
     .slide-container {
@@ -18,81 +18,124 @@
       display: flex; flex-direction: column;
       flex: 1;
       box-sizing: border-box;
+      position: relative;
+    }
+    .slide-container::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 90% 10%, rgba(251, 191, 36, 0.05), transparent 40%),
+                  radial-gradient(circle at 10% 90%, rgba(167, 139, 250, 0.05), transparent 40%);
+      pointer-events: none;
     }
     .header {
-      border-left: 5pt solid #0ea5e9;
-      padding-left: 10pt;
-      margin-bottom: 8pt;
+      border-left: 6pt solid #fbbf24;
+      padding-left: 12pt;
+      margin-bottom: 10pt;
     }
-    h1 { margin: 0; font-size: 24pt; color: #0f172a; line-height: 1.1; }
+    h1 { margin: 0; font-size: 24pt; color: #fbbf24; line-height: 1.1; letter-spacing: -0.5pt; }
     
     .process-container {
       display: flex;
-      gap: 8pt;
+      gap: 10pt;
       margin-top: 5pt;
     }
     .process-tag {
-      padding: 3pt 8pt;
-      border-radius: 4pt;
-      font-size: 10pt;
+      padding: 4pt 10pt;
+      border-radius: 6pt;
+      font-size: 11pt;
       font-weight: bold;
       color: white;
+      display: flex;
+      align-items: center;
+      gap: 5pt;
     }
-    .tag-thinking { background: #0369a1; border: 1pt solid #0ea5e9; }
-    .tag-activity { background: #0f766e; border: 1pt solid #14b8a6; }
+    .tag-thinking { background: #4338ca; border: 1pt solid #fbbf24; }
+    .tag-activity { background: #5b21b6; border: 1pt solid #a78bfa; }
 
     .content-box {
-      background: #ffffff;
-      padding: 10pt;
-      border-radius: 8pt;
-      border: 1pt solid #e0f2fe;
+      background: #312e81;
+      padding: 12pt;
+      border-radius: 12pt;
+      border: 1pt solid rgba(167, 139, 250, 0.3);
       flex: 1;
       display: flex; flex-direction: column;
       min-height: 0;
+      box-shadow: 0 8pt 20pt rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
     }
-    p, li { font-size: 13pt; line-height: 1.4; margin: 0; }
-    .bullet-list { margin: 0; padding-left: 15pt; list-style: none; }
-    .bullet-list li { margin-bottom: 5pt; position: relative; }
+    p, li { font-size: 12.5pt; line-height: 1.3; margin: 0; }
+    .bullet-list { margin: 10pt 0; padding-left: 20pt; list-style: none; }
+    .bullet-list li { margin-bottom: 8pt; position: relative; }
     .bullet-list li::before {
-      content: "🛁";
-      font-size: 10pt;
+      content: "✦";
+      color: #fbbf24;
+      font-size: 12pt;
       display: inline-block;
-      width: 1.5em;
-      margin-left: -1.5em;
+      width: 1.8em;
+      margin-left: -1.8em;
     }
     .guide-box {
-      background: #f0f9ff;
-      border-radius: 5pt;
-      padding: 5pt;
-      margin-top: 6pt;
-      border-left: 3pt solid #0ea5e9;
-    }
-    .guide-box p { font-size: 9.5pt; color: #0369a1; line-height: 1.2; }
-    .script-box {
-      background: #fdfcfb;
-      border-radius: 5pt;
-      padding: 5pt;
-      margin-top: 4pt;
-      border-left: 3pt solid #fbbf24;
-    }
-    .script-box p { font-size: 9.5pt; color: #92400e; font-style: italic; }
-    .footer {
+      background: rgba(251, 191, 36, 0.08);
+      border-radius: 6pt;
+      padding: 6pt;
       margin-top: auto;
-      text-align: right;
+      border-left: 4pt solid #fbbf24;
+    }
+    .guide-box p { font-size: 10pt; color: #fbbf24; line-height: 1.3; }
+    .script-box {
+      background: rgba(244, 114, 182, 0.08);
+      border-radius: 6pt;
+      padding: 6pt;
+      margin-top: 4pt;
+      border-left: 4pt solid #f472b6;
+    }
+    .script-box p { font-size: 10pt; color: #f472b6; font-style: italic; }
+    .footer {
+      margin-top: 10pt;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1pt solid rgba(255,255,255,0.1);
+      padding-top: 5pt;
     }
     .footer p {
-      font-size: 8.5pt;
-      color: #64748b;
-      margin: 3pt 0 0 0;
+      font-size: 9pt;
+      color: #cbd5e1;
     }
-    .highlight { color: #0ea5e9; font-weight: bold; }
+    .highlight { color: #fbbf24; font-weight: bold; }
+    .secondary-highlight { color: #a78bfa; font-weight: bold; }
     .icon-box { font-size: 40pt; text-align: center; margin: 5pt 0; }
-    .bubble {
-      width: 15pt; height: 15pt;
-      border: 1.5pt solid #22d3ee;
-      border-radius: 50%;
-      position: absolute;
-      opacity: 0.6;
+    .icon-box p { margin: 0; }
+    
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15pt;
+      margin-top: 10pt;
+    }
+    .comp-item {
+      padding: 10pt;
+      border-radius: 8pt;
+      background: rgba(255,255,255,0.05);
+    }
+    .rstf-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10pt;
+      margin-top: 5pt;
+    }
+    .rstf-card {
+      padding: 8pt;
+      border-radius: 8pt;
+      background: rgba(167, 139, 250, 0.15);
+      border: 1pt solid #a78bfa;
+    }
+    .rstf-letter {
+      font-size: 18pt;
+      font-weight: 900;
+      color: #fbbf24;
+      margin-right: 5pt;
     }
   </style>
 
@@ -101,29 +144,31 @@
   
     <div class="slide-container">
       <div class="header">
-        <h1>[실행] 따뜻한 물, 차가운 물 테스트</h1>
+        <h1>[미션] 청개구리 AI 길들이기 실습</h1>
         <div class="process-container">
-          <div class="process-tag tag-thinking"><p>사고 과정: 프로젝트 결과물 검증</p></div>
-          <div class="process-tag tag-activity"><p>활동: 센서를 물에 번갈아 넣으며 강아지의 반응 확인하기</p></div>
+          <div class="process-tag tag-thinking"><p>🧠 배운 지식의 실무 적용 및 피드백</p></div>
+          <div class="process-tag tag-activity"><p>🎯 RSTF 전략을 활용해 최종 프롬프트 입력하기</p></div>
         </div>
       </div>
       
       <div class="content-box">
-        <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fafaf9; border-radius: 10pt;">
-          <p style="font-size: 12pt; opacity: 0.6;">Water Temperature</p>
-          <p style="font-size: 45pt; font-weight: bold; color: #3b82f6;">24.8 °C</p>
-          <p style="font-size: 15pt; margin-top: 5pt;">Puppy: <span style="color: #3b82f6;">"으으~ 너무 추워요!"</span></p>
+        <div style="background: #1e3a8a; border-radius: 10pt; padding: 12pt; border: 2pt solid #fbbf24; flex: 1; display: flex; flex-direction: column;">
+            <p style="color: #fbbf24; font-weight: bold; margin-bottom: 8pt;">📝 최종 미션 프롬프트:</p>
+            <div style="background: rgba(0,0,0,0.3); padding: 10pt; border-radius: 8pt; flex: 1; font-family: monospace; font-size: 11pt;">
+                <p>"너는 <span class="highlight">[역할]</span>이야. 지금 상황은 <span class="highlight">[상황]</span>이야. 나를 위해 <span class="highlight">[비법 라면]</span>을 끓여주는 과정을 <span class="highlight">[단계별]</span>로 알려줘. 특히 <span class="secondary-highlight">아주 구체적인 행동</span>으로 설명해야 해!"</p>
+            </div>
         </div>
         <div class="guide-box">
-          <p><b>선생님 가이드</b>: 수온 센서가 실제 주변 온도를 정확하게 읽는지 확인합니다.</p>
+          <p><b>선생님 가이드</b>: AI의 답변이 '봉지 뜯기'부터 시작하는지, 구체적인 물의 양이 포함되었는지 확인하게 합니다.</p>
         </div>
         <div class="script-box">
-          <p><b>스크립트</b>: "자, 준비한 물에 센서를 넣어봐요. 강아지가 행복해하나요? 아니면 너무 뜨거워하나요?"</p>
+          <p><b>스크립트</b>: "자, 이제 여러분의 마법 프롬프트로 청개구리 로봇이 맛있는 라면을 끓이게 만들어 보세요!"</p>
         </div>
       </div>
     
       <div class="footer">
-        <p>스마트 욕조 만들기 | Slide 10</p>
+        <p>효과적인 프롬프트 작성 실습 | 프롬프트 엔지니어링</p>
+        <p>Slide 10 / 11</p>
       </div>
     </div>
   

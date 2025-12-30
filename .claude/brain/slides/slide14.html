@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   
   <style>
-    html { background: #f0f9ff; }
+    html { background: #0f172a; }
     body {
       width: 720pt; height: 405pt; margin: 0; padding: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Arial, sans-serif;
       display: flex; flex-direction: column;
-      color: #0f172a;
-      background: #f0f9ff;
+      color: #f1f5f9;
+      background: #0f172a;
       overflow: hidden;
     }
     .slide-container {
@@ -20,11 +20,11 @@
       box-sizing: border-box;
     }
     .header {
-      border-left: 5pt solid #0ea5e9;
+      border-left: 5pt solid #38bdf8;
       padding-left: 10pt;
       margin-bottom: 8pt;
     }
-    h1 { margin: 0; font-size: 24pt; color: #0f172a; line-height: 1.1; }
+    h1 { margin: 0; font-size: 24pt; color: #38bdf8; line-height: 1.1; }
     
     .process-container {
       display: flex;
@@ -38,62 +38,56 @@
       font-weight: bold;
       color: white;
     }
-    .tag-thinking { background: #0369a1; border: 1pt solid #0ea5e9; }
-    .tag-activity { background: #0f766e; border: 1pt solid #14b8a6; }
+    .tag-thinking { background: #334155; border: 1pt solid #38bdf8; }
+    .tag-activity { background: #1e3a8a; border: 1pt solid #818cf8; }
 
     .content-box {
-      background: #ffffff;
-      padding: 10pt;
-      border-radius: 8pt;
-      border: 1pt solid #e0f2fe;
+      background: #1e293b;
+      padding: 12pt;
+      border-radius: 10pt;
+      border: 1pt solid #334155;
       flex: 1;
       display: flex; flex-direction: column;
       min-height: 0;
+      box-shadow: 0 4pt 10pt rgba(0,0,0,0.3);
     }
     p, li { font-size: 13pt; line-height: 1.4; margin: 0; }
     .bullet-list { margin: 0; padding-left: 15pt; list-style: none; }
     .bullet-list li { margin-bottom: 5pt; position: relative; }
     .bullet-list li::before {
-      content: "🛁";
+      content: "✨";
       font-size: 10pt;
       display: inline-block;
       width: 1.5em;
       margin-left: -1.5em;
     }
     .guide-box {
-      background: #f0f9ff;
+      background: rgba(56, 189, 248, 0.1);
       border-radius: 5pt;
       padding: 5pt;
       margin-top: 6pt;
-      border-left: 3pt solid #0ea5e9;
+      border-left: 3pt solid #38bdf8;
     }
-    .guide-box p { font-size: 9.5pt; color: #0369a1; line-height: 1.2; }
+    .guide-box p { font-size: 9.5pt; color: #38bdf8; line-height: 1.2; }
     .script-box {
-      background: #fdfcfb;
+      background: rgba(244, 114, 182, 0.1);
       border-radius: 5pt;
       padding: 5pt;
       margin-top: 4pt;
-      border-left: 3pt solid #fbbf24;
+      border-left: 3pt solid #f472b6;
     }
-    .script-box p { font-size: 9.5pt; color: #92400e; font-style: italic; }
+    .script-box p { font-size: 9.5pt; color: #f472b6; font-style: italic; }
     .footer {
       margin-top: auto;
       text-align: right;
     }
     .footer p {
       font-size: 8.5pt;
-      color: #64748b;
+      color: #94a3b8;
       margin: 3pt 0 0 0;
     }
-    .highlight { color: #0ea5e9; font-weight: bold; }
+    .highlight { color: #818cf8; font-weight: bold; }
     .icon-box { font-size: 40pt; text-align: center; margin: 5pt 0; }
-    .bubble {
-      width: 15pt; height: 15pt;
-      border: 1.5pt solid #22d3ee;
-      border-radius: 50%;
-      position: absolute;
-      opacity: 0.6;
-    }
   </style>
 
 </head>
@@ -101,29 +95,26 @@
   
     <div class="slide-container">
       <div class="header">
-        <h1>[정리] AI로 만드는 따뜻한 세상</h1>
+        <h1>[정리] 이제 나도 당당한 창작자!</h1>
         <div class="process-container">
-          <div class="process-tag tag-thinking"><p>사고 과정: 기술의 가치 내면화 및 확장 상상</p></div>
-          <div class="process-tag tag-activity"><p>활동: 동물을 돕는 또 다른 스마트 장치 아이디어 나누기</p></div>
+          <div class="process-tag tag-thinking"><p>사고 과정: 성취감 내면화 및 미래 비전 확장</p></div>
+          <div class="process-tag tag-activity"><p>활동: AI 시대에 필요한 나의 경쟁력 상상해보기</p></div>
         </div>
       </div>
       
       <div class="content-box">
-        <div style="display: flex; gap: 15pt; justify-content: center; align-items: center; flex: 1;">
-           <div style="text-align: center;"><p style="font-size: 35pt;">🥘</p><p style="font-size: 9pt;">자동 급식기</p></div>
-           <div style="text-align: center;"><p style="font-size: 35pt;">🎾</p><p style="font-size: 9pt;">놀이 로봇</p></div>
-           <div style="text-align: center;"><p style="font-size: 35pt;">🏠</p><p style="font-size: 9pt;">스마트 집</p></div>
-        </div>
+        <p style="text-align: center; font-size: 15pt; color: #38bdf8; font-weight: bold; margin-bottom: 10pt;">"코딩 기술보다 더 중요한 것은<br>질문하는 힘과 상상력입니다."</p>
+        <div class="icon-box"><p>🏆 💡 🌍</p></div>
         <div class="guide-box">
-          <p><b>선생님 가이드</b>: 코딩 기술이 주변 생명을 돌보고 행복하게 할 수 있음을 일깨웁니다.</p>
+          <p><b>선생님 가이드</b>: AI를 잘 활용하는 능력이 미래의 새로운 무기가 될 수 있음을 시사합니다.</p>
         </div>
         <div class="script-box">
-          <p><b>스크립트</b>: "오늘 우리는 강아지를 위한 따뜻한 마음을 코딩했어요. 다음엔 어떤 동물을 도와주는 발명품을 만들어보고 싶나요?"</p>
+          <p><b>스크립트</b>: "오늘 우리는 코딩을 잘 몰라도 AI와 함께 멋진 걸 만들었어요. 다음번엔 AI와 또 무엇을 만들어볼까요?"</p>
         </div>
       </div>
     
       <div class="footer">
-        <p>스마트 욕조 만들기 | Slide 14</p>
+        <p>AI 계산기 마스터하기 | Slide 14</p>
       </div>
     </div>
   

@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   
   <style>
-    html { background: #f0f9ff; }
+    html { background: #1e1b4b; }
     body {
       width: 720pt; height: 405pt; margin: 0; padding: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
       display: flex; flex-direction: column;
-      color: #0f172a;
-      background: #f0f9ff;
+      color: #f8fafc;
+      background: #1e1b4b;
       overflow: hidden;
     }
     .slide-container {
@@ -18,92 +18,137 @@
       display: flex; flex-direction: column;
       flex: 1;
       box-sizing: border-box;
+      position: relative;
+    }
+    .slide-container::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 90% 10%, rgba(251, 191, 36, 0.05), transparent 40%),
+                  radial-gradient(circle at 10% 90%, rgba(167, 139, 250, 0.05), transparent 40%);
+      pointer-events: none;
     }
     .header {
-      border-left: 5pt solid #0ea5e9;
-      padding-left: 10pt;
-      margin-bottom: 8pt;
+      border-left: 6pt solid #fbbf24;
+      padding-left: 12pt;
+      margin-bottom: 10pt;
     }
-    h1 { margin: 0; font-size: 24pt; color: #0f172a; line-height: 1.1; }
+    h1 { margin: 0; font-size: 24pt; color: #fbbf24; line-height: 1.1; letter-spacing: -0.5pt; }
     
     .process-container {
       display: flex;
-      gap: 8pt;
+      gap: 10pt;
       margin-top: 5pt;
     }
     .process-tag {
-      padding: 3pt 8pt;
-      border-radius: 4pt;
-      font-size: 10pt;
+      padding: 4pt 10pt;
+      border-radius: 6pt;
+      font-size: 11pt;
       font-weight: bold;
       color: white;
+      display: flex;
+      align-items: center;
+      gap: 5pt;
     }
-    .tag-thinking { background: #0369a1; border: 1pt solid #0ea5e9; }
-    .tag-activity { background: #0f766e; border: 1pt solid #14b8a6; }
+    .tag-thinking { background: #4338ca; border: 1pt solid #fbbf24; }
+    .tag-activity { background: #5b21b6; border: 1pt solid #a78bfa; }
 
     .content-box {
-      background: #ffffff;
-      padding: 10pt;
-      border-radius: 8pt;
-      border: 1pt solid #e0f2fe;
+      background: #312e81;
+      padding: 12pt;
+      border-radius: 12pt;
+      border: 1pt solid rgba(167, 139, 250, 0.3);
       flex: 1;
       display: flex; flex-direction: column;
       min-height: 0;
+      box-shadow: 0 8pt 20pt rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
     }
-    p, li { font-size: 13pt; line-height: 1.4; margin: 0; }
-    .bullet-list { margin: 0; padding-left: 15pt; list-style: none; }
-    .bullet-list li { margin-bottom: 5pt; position: relative; }
+    p, li { font-size: 12.5pt; line-height: 1.3; margin: 0; }
+    .bullet-list { margin: 10pt 0; padding-left: 20pt; list-style: none; }
+    .bullet-list li { margin-bottom: 8pt; position: relative; }
     .bullet-list li::before {
-      content: "🛁";
-      font-size: 10pt;
+      content: "✦";
+      color: #fbbf24;
+      font-size: 12pt;
       display: inline-block;
-      width: 1.5em;
-      margin-left: -1.5em;
+      width: 1.8em;
+      margin-left: -1.8em;
     }
     .guide-box {
-      background: #f0f9ff;
-      border-radius: 5pt;
-      padding: 5pt;
-      margin-top: 6pt;
-      border-left: 3pt solid #0ea5e9;
-    }
-    .guide-box p { font-size: 9.5pt; color: #0369a1; line-height: 1.2; }
-    .script-box {
-      background: #fdfcfb;
-      border-radius: 5pt;
-      padding: 5pt;
-      margin-top: 4pt;
-      border-left: 3pt solid #fbbf24;
-    }
-    .script-box p { font-size: 9.5pt; color: #92400e; font-style: italic; }
-    .footer {
+      background: rgba(251, 191, 36, 0.08);
+      border-radius: 6pt;
+      padding: 6pt;
       margin-top: auto;
-      text-align: right;
+      border-left: 4pt solid #fbbf24;
+    }
+    .guide-box p { font-size: 10pt; color: #fbbf24; line-height: 1.3; }
+    .script-box {
+      background: rgba(244, 114, 182, 0.08);
+      border-radius: 6pt;
+      padding: 6pt;
+      margin-top: 4pt;
+      border-left: 4pt solid #f472b6;
+    }
+    .script-box p { font-size: 10pt; color: #f472b6; font-style: italic; }
+    .footer {
+      margin-top: 10pt;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1pt solid rgba(255,255,255,0.1);
+      padding-top: 5pt;
     }
     .footer p {
-      font-size: 8.5pt;
-      color: #64748b;
-      margin: 3pt 0 0 0;
+      font-size: 9pt;
+      color: #cbd5e1;
     }
-    .highlight { color: #0ea5e9; font-weight: bold; }
+    .highlight { color: #fbbf24; font-weight: bold; }
+    .secondary-highlight { color: #a78bfa; font-weight: bold; }
     .icon-box { font-size: 40pt; text-align: center; margin: 5pt 0; }
-    .bubble {
-      width: 15pt; height: 15pt;
-      border: 1.5pt solid #22d3ee;
-      border-radius: 50%;
-      position: absolute;
-      opacity: 0.6;
+    .icon-box p { margin: 0; }
+    
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15pt;
+      margin-top: 10pt;
+    }
+    .comp-item {
+      padding: 10pt;
+      border-radius: 8pt;
+      background: rgba(255,255,255,0.05);
+    }
+    .rstf-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10pt;
+      margin-top: 5pt;
+    }
+    .rstf-card {
+      padding: 8pt;
+      border-radius: 8pt;
+      background: rgba(167, 139, 250, 0.15);
+      border: 1pt solid #a78bfa;
+    }
+    .rstf-letter {
+      font-size: 18pt;
+      font-weight: 900;
+      color: #fbbf24;
+      margin-right: 5pt;
     }
   </style>
 
 </head>
 <body>
   
-      <div style="background: #0c4a6e; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; border-radius: 0;">
-        <p style="font-size: 16pt; color: #22d3ee; margin-bottom: 5pt; font-weight: bold;">[프로젝트]</p>
-        <h1 style="color: white; font-size: 30pt; text-align: center; margin-bottom: 15pt; line-height: 1.2;">우리 집 강아지가 행복해하는!<br>스마트 욕조 만들기</h1>
-        <p style="font-size: 14pt; opacity: 0.8;">수온 센서로 물의 온도를 감지하고 캐릭터와 대화해요</p>
-        <div class="icon-box"><p>🐕 🫧 🌡️</p></div>
+      <div style="background: #1e1b4b; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; border-radius: 0; text-align: center;">
+        <div style="background: rgba(251, 191, 36, 0.1); padding: 5pt 15pt; border-radius: 20pt; border: 1pt solid #fbbf24; margin-bottom: 20pt;">
+          <p style="font-size: 18pt; color: #fbbf24; font-weight: bold; letter-spacing: 2pt;">[마법의 주문]</p>
+        </div>
+        <h1 style="color: white; font-size: 36pt; margin-bottom: 20pt; line-height: 1.3;">똑똑한 AI 친구를 내 마음대로!<br><span style="color: #fbbf24;">프롬프트 엔지니어링</span></h1>
+        <p style="font-size: 18pt; color: #a78bfa;">대충 말하면 대충 해주는 AI? 제대로 명령하는 비법 공개</p>
+        <div class="icon-box"><p>🧙‍♂️ ✨ 🤖</p></div>
       </div>
     
 </body>

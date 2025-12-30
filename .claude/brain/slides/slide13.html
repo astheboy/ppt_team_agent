@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   
   <style>
-    html { background: #f0f9ff; }
+    html { background: #0f172a; }
     body {
       width: 720pt; height: 405pt; margin: 0; padding: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Arial, sans-serif;
       display: flex; flex-direction: column;
-      color: #0f172a;
-      background: #f0f9ff;
+      color: #f1f5f9;
+      background: #0f172a;
       overflow: hidden;
     }
     .slide-container {
@@ -20,11 +20,11 @@
       box-sizing: border-box;
     }
     .header {
-      border-left: 5pt solid #0ea5e9;
+      border-left: 5pt solid #38bdf8;
       padding-left: 10pt;
       margin-bottom: 8pt;
     }
-    h1 { margin: 0; font-size: 24pt; color: #0f172a; line-height: 1.1; }
+    h1 { margin: 0; font-size: 24pt; color: #38bdf8; line-height: 1.1; }
     
     .process-container {
       display: flex;
@@ -38,62 +38,56 @@
       font-weight: bold;
       color: white;
     }
-    .tag-thinking { background: #0369a1; border: 1pt solid #0ea5e9; }
-    .tag-activity { background: #0f766e; border: 1pt solid #14b8a6; }
+    .tag-thinking { background: #334155; border: 1pt solid #38bdf8; }
+    .tag-activity { background: #1e3a8a; border: 1pt solid #818cf8; }
 
     .content-box {
-      background: #ffffff;
-      padding: 10pt;
-      border-radius: 8pt;
-      border: 1pt solid #e0f2fe;
+      background: #1e293b;
+      padding: 12pt;
+      border-radius: 10pt;
+      border: 1pt solid #334155;
       flex: 1;
       display: flex; flex-direction: column;
       min-height: 0;
+      box-shadow: 0 4pt 10pt rgba(0,0,0,0.3);
     }
     p, li { font-size: 13pt; line-height: 1.4; margin: 0; }
     .bullet-list { margin: 0; padding-left: 15pt; list-style: none; }
     .bullet-list li { margin-bottom: 5pt; position: relative; }
     .bullet-list li::before {
-      content: "🛁";
+      content: "✨";
       font-size: 10pt;
       display: inline-block;
       width: 1.5em;
       margin-left: -1.5em;
     }
     .guide-box {
-      background: #f0f9ff;
+      background: rgba(56, 189, 248, 0.1);
       border-radius: 5pt;
       padding: 5pt;
       margin-top: 6pt;
-      border-left: 3pt solid #0ea5e9;
+      border-left: 3pt solid #38bdf8;
     }
-    .guide-box p { font-size: 9.5pt; color: #0369a1; line-height: 1.2; }
+    .guide-box p { font-size: 9.5pt; color: #38bdf8; line-height: 1.2; }
     .script-box {
-      background: #fdfcfb;
+      background: rgba(244, 114, 182, 0.1);
       border-radius: 5pt;
       padding: 5pt;
       margin-top: 4pt;
-      border-left: 3pt solid #fbbf24;
+      border-left: 3pt solid #f472b6;
     }
-    .script-box p { font-size: 9.5pt; color: #92400e; font-style: italic; }
+    .script-box p { font-size: 9.5pt; color: #f472b6; font-style: italic; }
     .footer {
       margin-top: auto;
       text-align: right;
     }
     .footer p {
       font-size: 8.5pt;
-      color: #64748b;
+      color: #94a3b8;
       margin: 3pt 0 0 0;
     }
-    .highlight { color: #0ea5e9; font-weight: bold; }
+    .highlight { color: #818cf8; font-weight: bold; }
     .icon-box { font-size: 40pt; text-align: center; margin: 5pt 0; }
-    .bubble {
-      width: 15pt; height: 15pt;
-      border: 1.5pt solid #22d3ee;
-      border-radius: 50%;
-      position: absolute;
-      opacity: 0.6;
-    }
   </style>
 
 </head>
@@ -101,29 +95,29 @@
   
     <div class="slide-container">
       <div class="header">
-        <h1>[테스트] 완벽한 스마트 욕조 점검</h1>
+        <h1>[테스트] 친구와 함께 써보는 계산기</h1>
         <div class="process-container">
-          <div class="process-tag tag-thinking"><p>사고 과정: 통합 시스템 디버깅</p></div>
-          <div class="process-tag tag-activity"><p>활동: 온도별 애니메이션과 배경색이 모두 정상인지 점검하기</p></div>
+          <div class="process-tag tag-thinking"><p>사고 과정: 사용자 피드백 수렴 및 상호 평가</p></div>
+          <div class="process-tag tag-activity"><p>활동: 친구의 작품을 직접 써보고 장점 찾아 칭찬하기</p></div>
         </div>
       </div>
       
       <div class="content-box">
-        <ul class="bullet-list" style="flex: 1;">
-          <li>30~38도에서 비눗방울이 나타나나요?</li>
-          <li>강아지의 상태 메시지가 온도와 일치하나요?</li>
-          <li>배경색이 자연스럽게 변하나요?</li>
-        </ul>
+        <div style="display: flex; gap: 15pt; justify-content: center; flex: 1;">
+          <div style="text-align: center;"><p>🎨</p><p style="font-size: 9pt;">독창적 디자인</p></div>
+          <div style="text-align: center;"><p>🚀</p><p style="font-size: 9pt;">빠른 반응 속도</p></div>
+          <div style="text-align: center;"><p>🌟</p><p style="font-size: 9pt;">특별한 기능</p></div>
+        </div>
         <div class="guide-box">
-          <p><b>선생님 가이드</b>: 모든 기능이 의도한 조건에서 정확히 작동하는지 확인합니다.</p>
+          <p><b>선생님 가이드</b>: 같은 AI를 썼더라도 사람의 '생각'에 따라 다른 결과가 나옴을 확인합니다.</p>
         </div>
         <div class="script-box">
-          <p><b>스크립트</b>: "우리가 만든 욕조가 완벽한지 다 같이 테스트해 봐요. 비눗방울도 잘 올라오고 색깔도 예쁘게 변하나요?"</p>
+          <p><b>스크립트</b>: "우리 반 친구들은 어떤 계산기를 만들었을까요? 서로의 작품을 써보며 멋진 점을 찾아봐요."</p>
         </div>
       </div>
     
       <div class="footer">
-        <p>스마트 욕조 만들기 | Slide 13</p>
+        <p>AI 계산기 마스터하기 | Slide 13</p>
       </div>
     </div>
   
